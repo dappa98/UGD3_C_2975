@@ -1,52 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOM API Javascript</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Sign In</title>
 
+<link rel="stylesheet" href="style.css">
+
+</head>
 <body>
 
-    <div class="box">
-        <h3>Website Ubah Warna</h3>
-        <br>
+<div class="container">
 
-        <label>Pilih warna teks:</label>
-        <input type="color" id="textColor">
-        <br>
+    <div class="login-box">
+        <h2>Form Sign In</h2>
+        <hr>
 
-        <div class="file-row">
-            <label>Pilih gambar:</label>
-            <input type="file" id="filebg" accept="image/*">
-        </div>
+        <label>Username</label>
+        <input type="text" id="username" placeholder="Masukkan Username">
+
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Masukkan Password">
+
+        <p id="error"></p>
+
+        <button onclick="login()">Sign In</button>
+
     </div>
 
-    <script>
-        var txtColor = document.getElementById("textColor");
+</div>
 
-        txtColor.addEventListener("input", function(){
-            document.body.style.color = txtColor.value;
-        });
-
-        filebg.addEventListener("change", (event) => {
-            var doc = event.target.files[0];
-
-            if (doc) {
-                var file = new FileReader();
-
-                file.onload = function(e) {
-                    document.body.style.backgroundImage = `url(${e.target.result})`;
-                    document.body.style.backgroundSize = "cover";
-                    document.body.style.backgroundRepeat = "no-repeat";
-                    document.body.style.backgroundPosition = "center";
-                }
-
-                file.readAsDataURL(doc);
-            }
-        });
-    </script>
+<script src="javascript.js"></script>
 
 </body>
 </html>
